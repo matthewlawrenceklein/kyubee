@@ -1,15 +1,32 @@
 <script>
     import DateCard from './DateCard.svelte'
-    import { events } from './constants.js'
     import { writable } from 'svelte/store'
+    import { onMount } from 'svelte';
 
-    $: calendarEvents = writable(events) 
+    $: calendarEvents = []
+
+    onMount(() =>{
+        fetch('http://localhost:3000/events')
+        .then(resp => resp.json())
+        .then(data => {
+            calendarEvents = data 
+        })
+    })
+
+    function getDates(){
+        fetch('http://localhost:3000/events')
+        .then(resp => resp.json())
+        .then(data => {
+            console.log('beep', data)
+        })
+    }
 
 </script>
 <div class='main'>
+    <button on:click={getDates}>get dates</button>
     <div class='container'>
         <div class='row'>
-            {#each $calendarEvents as date}
+            {#each [...calendarEvents] as date}
                 <DateCard {date} />
             {/each}
         </div>
