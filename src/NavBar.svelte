@@ -1,9 +1,10 @@
 <script>
-    // your script goes here
+    export let user 
 </script>
 
+<button on:click={() => user.set(null)}>LOG OUT</button>
+
 <style>
-    /* your styles go here */
 </style>
 
 <!-- markup (zero or more items) goes here -->
