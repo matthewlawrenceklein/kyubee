@@ -11,10 +11,12 @@
     <h3>{date.date}</h3>
     <ul>
         <li>{date.title}</li>
-        <li>{date.details}</li>
-        {#each date.tags as tag}
-             <li><strong>{tag}</strong></li>
-        {/each}
+        <!-- <li>{date.details}</li> -->
+        {#if date.tags}
+             {#each date.tags as tag}
+                  <li><strong>{tag}</strong></li>
+             {/each}
+        {/if}
     </ul>
 </div>
 
