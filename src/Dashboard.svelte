@@ -1,7 +1,15 @@
 <script>
-    // your script goes here
+    import DateCard from './DateCard.svelte'
+    import { events } from './constants.js'
+    $: calendarEvents = events 
 </script>
-<h1>hi mom</h1>
+<div class='container'>
+    <div class='row'>
+        {#each calendarEvents as date}
+            <DateCard {date} />
+        {/each}
+    </div>
+</div>
 <style>
     /* your styles go here */
 </style>

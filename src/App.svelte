@@ -6,8 +6,13 @@
 	import Datecard from './DateCard.svelte'
 	import Footer from './Footer.svelte'
 	import { writable } from 'svelte/store' 
+	import { onMount } from 'svelte';
 	
 	$: user = writable(null)
+
+	onMount(() => {
+		
+	});
 </script>
 
 {#if $user}
