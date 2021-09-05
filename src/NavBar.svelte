@@ -1,17 +1,18 @@
 <script>
     export let user 
-    export let calendarEvents
 
-    function handleAddDate(){
-        // let newEvent =  {
-        //     date : '11/11/11',
-        //     title : 'KILL HITLER',
-        //     details : 'at the park with mary',
-        //     tags : ['MURDER', 'social']
-        // }
-        // calendarEvents.update([...calendarEvents, newEvent ])
-        // console.log('got here')
-        console.log($calendarEvents)
+    async function handleAddDate(){
+        await fetch('http://localhost:3000/events', {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                date: new Date, 
+                title: 'blockparty'
+            })
+        })
+        .then(resp => console.log(resp))
     }
 </script>
 <div class='main'>
