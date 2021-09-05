@@ -1,17 +1,27 @@
 <script>
     import DateCard from './DateCard.svelte'
     import { events } from './constants.js'
-    $: calendarEvents = events 
+    import { writable } from 'svelte/store'
+
+    $: calendarEvents = writable(events) 
+
 </script>
-<div class='container'>
-    <div class='row'>
-        {#each calendarEvents as date}
-            <DateCard {date} />
-        {/each}
+<div class='main'>
+    <div class='container'>
+        <div class='row'>
+            {#each $calendarEvents as date}
+                <DateCard {date} />
+            {/each}
+        </div>
     </div>
 </div>
+
 <style>
-    /* your styles go here */
+    .main{
+        height: 80vh;
+        background: #141414;
+    }
+
 </style>
 
 <!-- markup (zero or more items) goes here -->
