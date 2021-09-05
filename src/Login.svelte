@@ -1,8 +1,9 @@
 <script>
+    import { Button } from 'svelte-chota';
     export let user 
 </script>
 
-<button on:click={() => user.set(true)}>LOGIN</button>
+<Button on:click={() => user.set(true)}>LOGIN</Button>
 
 <style>
 

@@ -1,4 +1,5 @@
 <script>
+	import 'chota'
 	import NavBar from './NavBar.svelte'
 	import Dashboard from './Dashboard.svelte'
 	import Login from './Login.svelte'
