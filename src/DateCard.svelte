@@ -8,7 +8,9 @@
 </script>
 
 <div class='container card'>
-    <h3>{date.date}</h3>
+    <header class='heading'>
+        <h3>{date.date}</h3>
+    </header>
     <ul>
         <li>{date.title}</li>
         <!-- <li>{date.details}</li> -->

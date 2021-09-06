@@ -2,24 +2,27 @@
     import DateCard from './DateCard.svelte'
     import EventModal from './eventModal.svelte'
     import { writable } from 'svelte/store'
-    import { onMount, beforeUpdate } from 'svelte';
+    import { onMount, beforeUpdate, afterUpdate } from 'svelte';
     export let eventModal
     $: calendarEvents = []
 
     $: onMount(() =>{
         getDates()
+        console.log(calendarEvents)
     })
 
     $: beforeUpdate(() => {
         getDates()
     })
 
+    
+
     async function getDates(){
         await fetch('http://localhost:3000/events')
                 .then(resp => resp.json())
                 .then(data => {
                     calendarEvents = data.events
-        })
+                })
     }
 </script>
 
@@ -31,9 +34,11 @@
          <button on:click={getDates}>get dates</button>
          <div class='container'>
              <div class='row'>
-                 {#each [...calendarEvents] as date}
-                     <DateCard {date} />
-                 {/each}
+                 {#if calendarEvents}
+                      {#each [...calendarEvents] as date}
+                          <DateCard {date}/>
+                      {/each}
+                 {/if}
              </div>
          </div>
     {/if}
