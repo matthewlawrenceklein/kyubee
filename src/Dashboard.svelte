@@ -1,23 +1,23 @@
 <script>
     import DateCard from './DateCard.svelte'
     import { writable } from 'svelte/store'
-    import { onMount } from 'svelte';
+    import { onMount, beforeUpdate } from 'svelte';
 
     $: calendarEvents = []
 
-    onMount(() =>{
-        fetch('http://localhost:3000/events')
-        .then(resp => resp.json())
-        .then(data => {
-            calendarEvents = data 
-        })
+    $: onMount(() =>{
+        getDates()
     })
 
-    function getDates(){
-        fetch('http://localhost:3000/events')
+    $: beforeUpdate(() => {
+        getDates()
+    })
+
+    async function getDates(){
+        await fetch('http://localhost:3000/events')
         .then(resp => resp.json())
         .then(data => {
-            console.log('beep', data)
+            calendarEvents = data.events
         })
     }
 
