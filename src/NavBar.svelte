@@ -1,25 +1,12 @@
 <script>
     export let user 
     export let eventModal
-    async function handleAddDate(){
-        eventModal.set(true)
-        // await fetch('http://localhost:3000/events', {
-        //     method: 'POST', 
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         date: new Date, 
-        //         title: 'blockparty'
-        //     })
-        // })
-    }
 </script>
 <div class='main'>
     <div class='container'>
         <div class='row'>
             <h1 class=col-8>Kyubee - calendars for dumdums</h1>
-            <button class='button primary' on:click={() => handleAddDate()}>NEW DATE</button>
+            <button class='button primary' on:click={() => eventModal.set(true)}>NEW DATE</button>
             <button class='button error' on:click={() => user.set(null)}>LOG OUT</button>
         </div>
     </div>
