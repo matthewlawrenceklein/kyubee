@@ -2,7 +2,7 @@
     import DateCard from './DateCard.svelte'
     import { writable } from 'svelte/store'
     import { onMount, beforeUpdate } from 'svelte';
-
+    export let eventModal
     $: calendarEvents = []
 
     $: onMount(() =>{
@@ -23,14 +23,19 @@
 </script>
 
 <div class='main'>
-    <button on:click={getDates}>get dates</button>
-    <div class='container'>
-        <div class='row'>
-            {#each [...calendarEvents] as date}
-                <DateCard {date} />
-            {/each}
-        </div>
-    </div>
+    {#if $eventModal}
+        <h1>hell yearh</h1>
+         <!-- content here -->
+    {:else}
+         <button on:click={getDates}>get dates</button>
+         <div class='container'>
+             <div class='row'>
+                 {#each [...calendarEvents] as date}
+                     <DateCard {date} />
+                 {/each}
+             </div>
+         </div>
+    {/if}
 </div>
 
 <style>

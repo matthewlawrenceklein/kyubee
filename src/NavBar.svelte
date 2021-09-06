@@ -1,17 +1,18 @@
 <script>
     export let user 
-
+    export let eventModal
     async function handleAddDate(){
-        await fetch('http://localhost:3000/events', {
-            method: 'POST', 
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                date: new Date, 
-                title: 'blockparty'
-            })
-        })
+        eventModal.set(true)
+        // await fetch('http://localhost:3000/events', {
+        //     method: 'POST', 
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         date: new Date, 
+        //         title: 'blockparty'
+        //     })
+        // })
     }
 </script>
 <div class='main'>

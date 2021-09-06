@@ -7,12 +7,13 @@
 	import { writable } from 'svelte/store' 
 	
 	$: user = writable(null)
+	$: eventModal = writable(false)
 	
 </script>
 
 {#if $user}
-	<NavBar {user}/>
-	<Dashboard/>
+	<NavBar {user} {eventModal}/>
+	<Dashboard {eventModal}/>
 	<Footer/>
 {:else}
 	<Login {user} />
