@@ -3,39 +3,36 @@
     import EventModal from './eventModal.svelte'
     import { writable } from 'svelte/store'
     import { onMount, beforeUpdate, afterUpdate } from 'svelte';
+    export let calendarEvents
     export let eventModal
-    $: calendarEvents = []
+    // $: calendarEvents = []
 
     $: onMount(() =>{
         getDates()
-        console.log(calendarEvents)
     })
 
     $: beforeUpdate(() => {
         getDates()
     })
 
-    
-
-    async function getDates(){
-        await fetch('http://localhost:3000/events')
-                .then(resp => resp.json())
-                .then(data => {
-                    calendarEvents = data.events
-                })
+    function getDates(){
+        fetch('http://localhost:3000/events')
+            .then(resp => resp.json())
+            .then(data => {
+                calendarEvents.set(data.events) // = data.events
+            })
     }
 </script>
 
 <div class='main'>
     {#if $eventModal}
         <EventModal {eventModal}/>
-         <!-- content here -->
     {:else}
-         <button on:click={getDates}>get dates</button>
          <div class='container'>
+             <button on:click={getDates}>get dates</button>
              <div class='row'>
-                 {#if calendarEvents}
-                      {#each [...calendarEvents] as date}
+                 {#if $calendarEvents}
+                      {#each Object.values($calendarEvents) as date}
                           <DateCard {date}/>
                       {/each}
                  {/if}

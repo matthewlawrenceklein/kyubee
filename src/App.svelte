@@ -8,12 +8,12 @@
 	
 	$: user = writable(null)
 	$: eventModal = writable(false)
-	
+	$: calendarEvents = writable([])
 </script>
 
 {#if $user}
 	<NavBar {user} {eventModal}/>
-	<Dashboard {eventModal}/>
+	<Dashboard {eventModal} {calendarEvents}/>
 	<Footer/>
 {:else}
 	<Login {user} />

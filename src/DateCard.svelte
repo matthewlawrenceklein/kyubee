@@ -13,7 +13,7 @@
     </header>
     <ul>
         <li>{date.title}</li>
-        <!-- <li>{date.details}</li> -->
+        <li>{date.details}</li>
         {#if date.tags}
              {#each date.tags as tag}
                   <li><strong>{tag}</strong></li>
