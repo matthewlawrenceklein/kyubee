@@ -20,8 +20,8 @@
                     calendarEvents = data.events
         })
     }
-
 </script>
+
 <div class='main'>
     <button on:click={getDates}>get dates</button>
     <div class='container'>
