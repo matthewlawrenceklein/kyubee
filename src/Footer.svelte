@@ -1,20 +1,17 @@
 <script>
     // your script goes here
 </script>
-<div class='box'>
-    <div class='row'>
-        <h4 class='col-12'>kyubee</h4>
-    </div>
+<div class='nav'>
+    <h2 class='nav-center'>kyubee</h2>
 </div>
 <style>
-    .box{
-        width: 100vw;
+    .nav{
         height: 150px;
+        width: 100vw;
         color: white;
-        background-color: darkslategrey;
+        background-color: #141414;
         position: fixed;
         bottom: 0;
-        text-align: center;
     }
     
 </style>

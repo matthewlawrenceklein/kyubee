@@ -29,7 +29,7 @@
         <EventModal {eventModal}/>
     {:else}
          <div class='container'>
-             <button on:click={getDates}>get dates</button>
+             <!-- <button on:click={getDates}>get dates</button> -->
              <div class='row'>
                  {#if $calendarEvents}
                       {#each Object.values($calendarEvents) as date}
@@ -43,8 +43,8 @@
 
 <style>
     .main{
-        height: 80vh;
-        background: #141414;
+        height: 90vh;
+        background: #404040;
     }
 
 </style>

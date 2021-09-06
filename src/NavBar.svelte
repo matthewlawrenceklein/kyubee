@@ -3,30 +3,29 @@
     export let eventModal
 </script>
 <div class='main'>
-    <div class='container'>
-        <div class='row'>
-            <h1 class=col-8>Kyubee - calendars for dumdums</h1>
+    <div class='nav'>
+        <div class='nav-left'>
             <button class='button primary' on:click={() => eventModal.set(true)}>NEW DATE</button>
+        </div>
+        <div class='nav-center'>
+            <h1 class=col-8>Kyubee - calendars for dumdums</h1>
+        </div>
+        <div class='nav-right'>
             <button class='button error' on:click={() => user.set(null)}>LOG OUT</button>
         </div>
     </div>
 </div>
 
 <style>
-    .container{
-        width: 100vw;
-        height: 150px;
-        background-color: darkslategrey;
-        justify-content: center;
-        align-items: center;
-        vertical-align: middle;
+    .nav{
+        background-color: #141414;
     }
     h1{
         color: white;
     }
 
     .main{
-        background: #141414;   
+        background-color: #404040;   
     }
 </style>
 

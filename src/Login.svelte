@@ -18,11 +18,11 @@
         justify-content: center;
         align-items: center;
         vertical-align: middle;
-        background: #141414;
+        background: #404040;
     }
 
     .box{
-        background-color: darkslategrey;
+        background-color:#141414;
         height: 150px;
         width: 150px;
         display: flex;
