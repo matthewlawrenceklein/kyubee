@@ -32,8 +32,8 @@
              <!-- <button on:click={getDates}>get dates</button> -->
              <div class='row'>
                  {#if $calendarEvents}
-                      {#each Object.values($calendarEvents) as date}
-                          <DateCard {date}/>
+                      {#each Object.values($calendarEvents) as dateObj}
+                          <DateCard {dateObj}/>
                       {/each}
                  {/if}
              </div>
