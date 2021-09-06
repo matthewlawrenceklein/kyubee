@@ -1,6 +1,5 @@
 <script>
     export let user 
-    export let calendarEvents
 
     async function handleAddDate(){
         await fetch('http://localhost:3000/events', {

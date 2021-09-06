@@ -15,9 +15,9 @@
 
     async function getDates(){
         await fetch('http://localhost:3000/events')
-        .then(resp => resp.json())
-        .then(data => {
-            calendarEvents = data.events
+                .then(resp => resp.json())
+                .then(data => {
+                    calendarEvents = data.events
         })
     }
 
