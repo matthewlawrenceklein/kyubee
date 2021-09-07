@@ -11,19 +11,8 @@
     $: date = null
     $: tags = null
 
-    const handleUpdateEvent = (e) => {
+    const handleUpdateEvent = async(e) => {
         e.preventDefault()
-        putEvent()
-        getDates()
-        handleFlipCard()
-    }
-
-    const handleFlipCard = () => {
-        console.log(`set card flip status to ${showEditPage}`)
-        showEditPage = !showEditPage
-    }
-
-    async function putEvent(){
         await fetch(`http://localhost:3000/events/${dateObj.id}`, {
             method: 'PUT', 
             headers: {
@@ -36,14 +25,39 @@
                 details: details ? details : dateObj.details
             })
         })
-        .then((resp) => {
-           console.log(resp) 
-        })
-        .catch(err => {
-            console.log(err)
-        })
+        .then(resp => console.log(resp))
+        .catch(err => console.log(error))
+        getDates()
+        handleFlipCard()
     }
 
+    const handleDestroyEvent = async(e) => {
+        e.preventDefault()
+
+        await fetch(`http://localhost:3000/events/${dateObj.id}`, {
+            method: 'DELETE', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id : dateObj.id, 
+            })
+        })
+        .then(resp => console.log(resp))
+        .catch(err => console.log(error))
+        getDates()
+        handleFlipCard()
+    }
+
+    
+    async function putEvent(){
+        
+    }
+    
+    const handleFlipCard = () => {
+        console.log(`set card flip status to ${showEditPage}`)
+        showEditPage = !showEditPage
+    }
 </script>
 
 <div class='container card'>
@@ -70,7 +84,7 @@
             <div class='row'>
                 <button type='submit' class='button primary col-3' on:click={handleUpdateEvent}><cds-icon shape="check" size='xl'></cds-icon></button>
                 <button class='button error col-3' on:click={handleFlipCard}><cds-icon shape="cancel" size='xl'></cds-icon></button>
-                <button class='button error col-3'> <cds-icon shape="trash" size='xl'></cds-icon></button>
+                <button class='button error col-3' on:click={handleDestroyEvent}> <cds-icon shape="trash" size='xl'></cds-icon></button>
             </div>
         </form>
     {/if}
