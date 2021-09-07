@@ -68,9 +68,9 @@
             <input type='text' placeholder={dateObj.title} bind:value={title}/>
             <input type='text' placeholder={dateObj.details} bind:value={details}/>
             <div class='row'>
-                <button type='submit' class='button primary col-4' on:click={handleUpdateEvent}><cds-icon shape="check" size='xl'></cds-icon></button>
-                <button class='button error col-4' on:click={handleFlipCard}><cds-icon shape="cancel" size='xl'></cds-icon></button>
-                <button class='button error col-2'> <cds-icon shape="trash" size='xl'></cds-icon></button>
+                <button type='submit' class='button primary col-3' on:click={handleUpdateEvent}><cds-icon shape="check" size='xl'></cds-icon></button>
+                <button class='button error col-3' on:click={handleFlipCard}><cds-icon shape="cancel" size='xl'></cds-icon></button>
+                <button class='button error col-3'> <cds-icon shape="trash" size='xl'></cds-icon></button>
             </div>
         </form>
     {/if}
