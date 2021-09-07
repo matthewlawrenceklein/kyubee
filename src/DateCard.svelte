@@ -1,4 +1,8 @@
 <script>
+    import '@cds/core/icon/register.js';
+    import { ClarityIcons, trashIcon, stopIcon, checkIcon } from '@cds/core/icon';
+    ClarityIcons.addIcons(trashIcon, stopIcon, checkIcon);
+
     export let dateObj;
     export let getDates
     let showEditPage = false
@@ -64,8 +68,9 @@
             <input type='text' placeholder={dateObj.title} bind:value={title}/>
             <input type='text' placeholder={dateObj.details} bind:value={details}/>
             <div class='row'>
-                <button type='submit' class='button primary' on:click={handleUpdateEvent}>Edit Event</button>
-                <button class='button error' on:click={handleFlipCard}>Cancel</button>
+                <button type='submit' class='button primary col-4' on:click={handleUpdateEvent}><cds-icon shape="check" size='xl'></cds-icon></button>
+                <button class='button error col-4' on:click={handleFlipCard}><cds-icon shape="cancel" size='xl'></cds-icon></button>
+                <button class='button error col-2'> <cds-icon shape="trash" size='xl'></cds-icon></button>
             </div>
         </form>
     {/if}
@@ -73,15 +78,15 @@
 
 <style>
     .card {
-        width: 280px;
-        height: 200px;
+        width: 380px;
+        height: 300px;
         margin: 10px;
         margin-top: 20px;
     }
 
     .card-details-container{
-        min-height: 199px;
-        min-width: 279px;
+        min-height: 299px;
+        min-width: 379px;
     }
 </style>
 

@@ -20,6 +20,8 @@
     "svelte-chota": "^1.8.6"
   },
   "dependencies": {
+    "@cds/city": "^1.1.0",
+    "@cds/core": "^5.5.3",
     "sirv-cli": "^1.0.0"
   }
 }
