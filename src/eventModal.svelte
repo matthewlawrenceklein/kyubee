@@ -1,8 +1,7 @@
 <script>
-import { onMount } from "svelte";
-
-
+    import { onMount } from "svelte";
     export let eventModal
+    export let getDates
     $: date = null 
     $: title = null 
     $: details = null 
@@ -22,7 +21,7 @@ import { onMount } from "svelte";
             })
         })
         .then(() => {
-            console.log('date added')
+            getDates()
             eventModal.set(false)
         })
         .catch(err => {
@@ -37,7 +36,6 @@ import { onMount } from "svelte";
         <input type='text' bind:value={title} placeholder='title'/>
         <input type='text' bind:value={details} placeholder='details'/>
         <button type='submit' on:click={handleAddDate} class='button primary'>Submit</button>
-
     </form>
 </div>
 
