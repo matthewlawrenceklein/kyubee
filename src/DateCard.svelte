@@ -1,6 +1,4 @@
 <script>
-    import { onMount } from 'svelte'
-    import { writable } from 'svelte/store';
     export let dateObj;
     export let getDates
     let showEditPage = false
